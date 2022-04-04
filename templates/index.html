@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.scss') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <title>Pricer From FF</title>
+</head>
+<script>
+    $(document).ready(function() {
+
+        var html = '';
+        for (var i = 1; i <= 50; i++) {
+            html += '<div class="shape-container--' + i + ' shape-animation"><div class="random-shape"></div></div>';
+        }
+
+        document.querySelector('.shape').innerHTML += html;
+
+        var $allShapes = $("[class*='shape-container--']");
+    });
+</script>
+
+<body class="bg-black">
+    <div class="flex items-center justify-center h-screen">
+
+        <div class="bg-black text-white    rounded-lg border shadow-lg p-5">
+            <form action="/" method="POST">
+                <h1 class="mb-5 text-xl underline">Pricer for Tech Using Machine Learning</h1>
+                <div class="">
+                    <label for="Ram">Ram</label>
+                    <input type="number" placeholder="2 GB" name="Ram">
+                </div>
+                <div>
+                    <label for="Weight">Weight</label>
+                    <input type="number" placeholder="2kg" name="Weight">
+                </div>
+                <div>
+                    <label for="Company">Company:</label>
+                    <select name="Company">
+                        <option value="" selected hidden>Select</option>
+                        <option value="Dell">Dell</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="HP">HP</option>
+                        <option value="Asus">Asus</option>
+                        <option value="Acer">Acer</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Other">Other</option>
+                        <option value="Toshiba">Toshiba</option>
+                        <option value="Apple">Apple</option>
+                        
+                    </select>
+                </div>
+                <div>
+                    <label for="TypeName">TypeName:</label>
+                    <select name="TypeName">
+                        <option value="" selected hidden>Select</option>
+                        <option value="Notebook">Notebook</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Ultrabook">Ultrabook</option>
+                        <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                        <option value="Workstation">Workstation</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Netbook">Netbook</option>
+                        
+                    </select>
+                </div>
+                <div>
+                    <label for="OpSys">OpSys:</label>
+                    <select name="OpSys">
+                        <option value="" selected hidden>Select</option>
+                        <option value="Windows">Windows</option>
+                        <option value="other">other</option>
+                        <option value="Linux">Linux</option>
+
+                        <option value="MAC">MAC</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="Cpu_name">CPU:</label>
+                    <select name="Cpu_name">
+                        <option value="" se lected hidden>Select</option>
+                        <option value="Intel Core i7'">Intel Core i7</option>
+                        <option value="Intel Core i5'">Intel Core i5</option>
+                        <option value="Intel Core i3'">Intel Core i3</option>
+                        <option value="AMD">AMD</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Gpu_name">GPU:</label>
+                    <select name="Gpu_name">
+                        <option value="" se lected hidden>Select</option>
+                        <option value="Intel'">Intel</option>
+                        <option value="Nvidia'">Nvidia</option>
+                        <option value="AMD'">AMD</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+
+                <!-- TICKS -->
+                <label for="IPS">IPS -->   </label><input type="checkbox" name="IPS"></br>
+                <label for="Touchscreen">Touchscreen -->  </label><input type="checkbox" name="Touchscreen"></br>
+                <label for="Retina-Display">Retina-Display --> </label><input type="checkbox" name="Retina-Display"></br>
+                <label for="Full-HD">Full-HD --> </label><input type="checkbox" name="Full-HD">
+                </br>
+                <div id="DIV">
+                    <input type="submit" value="Submit" id="submit">
+
+                </div>
+                <div>
+                    {% if price != 0 %}
+                    <div id="price">Your Price in Euros {{ price }}</div>
+                    <div id='lkr'>Your Price in LKR {{ lkrprice }}</div>
+
+                    {%else %}
+                    <div>0</div> {% endif %}
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+<style>
+    select {
+        background: black;
+        font-size: 12px;
+        padding: 10px;
+        border: white;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 9px;
+        margin: 3px;
+    }
+    
+    input {
+        padding: 5px;
+        margin: 4px;
+        border: white;
+        border-style: solid;
+        border-width: 1px;
+        background: black;
+        border-radius: 7px;
+    }
+    
+    #DIV {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #submit {
+        color: white;
+        background: none;
+        border: white;
+        border-style: double;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    
+    #submit:hover {
+        background-color: rgba(255, 255, 255, 0.479);
+    }
+    
+    #price {
+        padding: 10px;
+        border-radius: 12px;
+        margin: 10px;
+        justify-content: center;
+        display: flex;
+        border: white;
+        border-style: dashed;
+    }
+    
+    #lkr {
+        padding: 10px;
+        border: white;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border-style: dashed;
+    }
+</style>
+
+</html>
