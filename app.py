@@ -54,7 +54,7 @@ def index():
         appender(cpu , cpu_names )
         appender(gpu , gpu_names )
         pred =  model.predict([feature_list])
-    price = np.round(pred[0])
+        price = np.round(pred[0])
     print("feature list lenght" , pred)
     return render_template('index.html' , price = price , lkrprice = np.round(price*294.83) )
 
