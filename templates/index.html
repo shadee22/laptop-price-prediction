@@ -24,23 +24,26 @@
     });
 </script>
 
-<body class="bg-black">
+<body class="bg-white">
     <div class="flex items-center justify-center h-screen">
 
-        <div class="bg-black text-white    rounded-lg border shadow-lg p-5">
+        <div class="    rounded-lg border shadow-lg p-5 w-2/4">
             <form action="/" method="POST">
-                <h1 class="mb-5 text-xl underline">Pricer for Tech Using Machine Learning</h1>
+                <h1 class="mb-5 text-xl font-bold text-center ">Laptop Price Prediction (Reggression Model)</h1>
                 <div class="">
                     <label for="Ram">Ram</label>
-                    <input type="number" placeholder="2 GB" name="Ram">
+                    <input type="number" class="px-4 py-2 border rounded-lg m-2 w-64"
+                    required    placeholder="2 GB" name="Ram">
                 </div>
                 <div>
                     <label for="Weight">Weight</label>
-                    <input type="number" placeholder="2kg" name="Weight">
+                    <input type="number" class="px-4 py-2 border rounded-lg m-2 w-64"
+                    required placeholder="2kg" name="Weight">
                 </div>
                 <div>
                     <label for="Company">Company:</label>
-                    <select name="Company">
+                    <select class="px-4 py-2 border rounded-lg m-2 w-64"
+                    required name="Company">
                         <option value="" selected hidden>Select</option>
                         <option value="Dell">Dell</option>
                         <option value="Lenovo">Lenovo</option>
@@ -56,7 +59,8 @@
                 </div>
                 <div>
                     <label for="TypeName">TypeName:</label>
-                    <select name="TypeName">
+                    <select class="px-4 py-2 border rounded-lg m-2 w-64"
+                    required name="TypeName">
                         <option value="" selected hidden>Select</option>
                         <option value="Notebook">Notebook</option>
                         <option value="Gaming">Gaming</option>
@@ -70,7 +74,8 @@
                 </div>
                 <div>
                     <label for="OpSys">OpSys:</label>
-                    <select name="OpSys">
+                    <select class="px-4 py-2 border rounded-lg m-2 w-64"
+                    required name="OpSys">
                         <option value="" selected hidden>Select</option>
                         <option value="Windows">Windows</option>
                         <option value="other">other</option>
@@ -83,7 +88,8 @@
 
                 <div>
                     <label for="Cpu_name">CPU:</label>
-                    <select name="Cpu_name">
+                    <select class="px-4 py-2 border rounded-lg m-2 w-64"
+                    required name="Cpu_name">
                         <option value="" se lected hidden>Select</option>
                         <option value="Intel Core i7'">Intel Core i7</option>
                         <option value="Intel Core i5'">Intel Core i5</option>
@@ -93,7 +99,8 @@
                 </div>
                 <div>
                     <label for="Gpu_name">GPU:</label>
-                    <select name="Gpu_name">
+                    <select class="px-4 py-2 border rounded-lg m-2 w-64"
+                    required name="Gpu_name">
                         <option value="" se lected hidden>Select</option>
                         <option value="Intel'">Intel</option>
                         <option value="Nvidia'">Nvidia</option>
@@ -104,19 +111,19 @@
 
 
                 <!-- TICKS -->
-                <label for="IPS">IPS -->   </label><input type="checkbox" name="IPS"></br>
-                <label for="Touchscreen">Touchscreen -->  </label><input type="checkbox" name="Touchscreen"></br>
-                <label for="Retina-Display">Retina-Display --> </label><input type="checkbox" name="Retina-Display"></br>
-                <label for="Full-HD">Full-HD --> </label><input type="checkbox" name="Full-HD">
+                <label for="IPS">IPS </label><input class=" h-4 w-4" type="checkbox" name="IPS"></br>
+                <label for="Touchscreen">Touchscreen   </label><input class=" h-4 w-4"  type="checkbox" name="Touchscreen"></br>
+                <label for="Retina-Display">Retina-Display </label><input class=" h-4 w-4" type="checkbox" name="Retina-Display"></br>
+                <label for="Full-HD">Full-HD </label><input type="checkbox" class=" h-4 w-4" name="Full-HD">
                 </br>
-                <div id="DIV">
-                    <input type="submit" value="Submit" id="submit">
+                <div class="flex justify-center">
+                    <input type="submit" class="bg-blue-500 px-8 py-2 rounded-2xl font-medium text-white" value="Submit" id="submit">
 
                 </div>
-                <div>
+                <div class="border m-2 p-2 font-bold space-y-2">
                     {% if price != 0 %}
-                    <div id="price">Your Price in Euros {{ price }}</div>
-                    <div id='lkr'>Your Price in LKR {{ lkrprice }}</div>
+                    <div id="price">Your Price in Euros :  <span  class="text-xl">{{ price }} </span>€</div>
+                    <div id='lkr'>Your Price in LKR     : <span  class="text-xl"> {{ lkrprice }}</span> LKR</div>
 
                     {%else %}
                     <div>0</div> {% endif %}
@@ -128,65 +135,9 @@
 
 </body>
 <style>
-    select {
-        background: black;
-        font-size: 12px;
-        padding: 10px;
-        border: white;
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 9px;
-        margin: 3px;
-    }
+   
     
-    input {
-        padding: 5px;
-        margin: 4px;
-        border: white;
-        border-style: solid;
-        border-width: 1px;
-        background: black;
-        border-radius: 7px;
-    }
     
-    #DIV {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #submit {
-        color: white;
-        background: none;
-        border: white;
-        border-style: double;
-        padding: 10px;
-        border-radius: 30px;
-    }
-    
-    #submit:hover {
-        background-color: rgba(255, 255, 255, 0.479);
-    }
-    
-    #price {
-        padding: 10px;
-        border-radius: 12px;
-        margin: 10px;
-        justify-content: center;
-        display: flex;
-        border: white;
-        border-style: dashed;
-    }
-    
-    #lkr {
-        padding: 10px;
-        border: white;
-        border-radius: 10px;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        border-style: dashed;
-    }
 </style>
 
 </html>
