@@ -8,7 +8,7 @@ This is a Python Flask application that predicts laptop prices using machine lea
 - Efficient algorithm for quick results.
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/your-username/laptop-price-prediction.git`
+1. Clone the repository: `git clone https://github.com/shadee22/laptop-price-prediction.git`
 2. Navigate to the project directory: `cd laptop-price-prediction`
 3. Install the required dependencies: `pip install -r requirements.txt`
 
