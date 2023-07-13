@@ -11,8 +11,6 @@ def index():
 
     with open("model/pricer.pickle" , 'rb') as file:
         model = pickle.load(file)
-
-
     price = 0
     if request.method == 'POST':
         ram = request.form['Ram']
